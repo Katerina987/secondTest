@@ -1,0 +1,20 @@
+[
+    {
+      "computerName": "Computer ACE",
+      "introducedDate": "2022-11-19",
+      "discontinuedDate": "2023-11-19",
+      "company": "Apple Inc"
+    },
+    {
+      "computerName": "Macbook Pro",
+      "introducedDate": "2023-01-25",
+      "discontinuedDate": "2024-01-25",
+      "company": "Apple Inc"
+    },
+    {
+      "computerName": "Dell Inspiron",
+      "introducedDate": "2021-09-14",
+      "discontinuedDate": "2022-19-14",
+      "company": "Dell"
+    }
+  ]
