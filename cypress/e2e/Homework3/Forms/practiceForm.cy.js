@@ -14,11 +14,30 @@ describe('Text Box', () => {
         return false;
     });
     it('Should fill and submit the form', () => {
-        cy.get('#userName').type('Katerina Mickoska');
-        cy.get('#userEmail').type('katerina.mickoska@test.de');
-        cy.get('#currentAddress').type('Test Address');
-        cy.get('#permanentAddress').type('Test Address 2');
-        cy.get('#submit').click({ force: true });
-        // assertation 
+        let userEmailFaker = faker.internet.email();
+        let userFirstName = faker.person.firstName();
+        let userLastName = faker.person.lastName();
+        let userNumber = faker.phone.number();
+        cy.get('#firstName').type(userFirstName);
+        cy.get('#lastName').type(userLastName);
+        cy.get('#userEmail').type(userEmailFaker);
+        cy.get('#userNumber').type(userNumber);
+        cy.get('#subjectsInput').type('Arts{enter}')
+        cy.contains('label', 'Male').click();
+        cy.contains('label', 'Reading').click();
+        cy.contains('label', 'Sports').click();
+        cy.get('#state').click();
+        cy.contains('div', 'NCR').click();
+        cy.get('#city').click();
+        cy.contains('div', 'Noida').click();
+        cy.get('#submit').click();
+
+        //validate
+        cy.get('#example-modal-sizes-title-lg').should('contain.text', 'Thanks for submitting the form')
+        cy.get('.modal-content').should('contain.text', userFirstName);
+        cy.get('.modal-content').should('contain.text', userLastName);
+        cy.get('.modal-content').should('contain.text', userEmailFaker);
+        cy.get('.modal-content').should('contain.text', userNumber);
+
     });
 });
