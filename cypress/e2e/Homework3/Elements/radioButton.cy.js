@@ -15,11 +15,15 @@ describe('Buttons', () => {
     });
     it('Should click radio button Yes', () => {
         cy.get('#yesRadio').click({ force: true });
+        //cy.get('label[for="yesRadio"]').click();
         cy.contains('You have selected Yes').should('be.visible');
+        //cy.get('p.mt-3').should('have.text', 'You have selected Yes');
     });
     it('Should click radio button Impressive', () => {
         cy.get('#impressiveRadio').click({ force: true });
+        //cy.xpath('//*[@id="impressiveRadio"]').check( {force: true} );
         cy.contains('You have selected Impressive').should('be.visible');
+        //cy.get('p.mt-3').should('have.text', 'You have selected Impressive');
     });
     it('Radio button No is disabled', () => {
         cy.get('#noRadio').should('be.disabled');

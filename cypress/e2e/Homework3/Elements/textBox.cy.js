@@ -15,10 +15,16 @@ describe('Text Box', () => {
     });
     it('Should fill the form', () => {
         cy.get('#userName').type('Katerina Mickoska');
+        //cy.get('[placeholder="Full Name"]').type(name);
         cy.get('#userEmail').type('katerina.mickoska@test.de');
+        //cy.get('[placeholder="name@example.com""]').type('katerina.mickoska@test.de');
         cy.get('#currentAddress').type('Test Address');
+        //cy.get('[placeholder="Current Address"]').type('Test Address');
         cy.get('#permanentAddress').type('Test Address 2');
+        //cy.xpath('//*[@id="permanentAddress"]').type('Test Adress');
         cy.get('#submit').click({ force: true });
+        //cy.contains('button', 'Submit').click();
+
         // assertation 
         cy.get('#output').within(() => {
             cy.get('#name').should('contain.text', 'Katerina Mickoska');

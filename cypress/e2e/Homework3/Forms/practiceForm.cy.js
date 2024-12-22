@@ -17,11 +17,10 @@ describe('Text Box', () => {
         let userEmailFaker = faker.internet.email();
         let userFirstName = faker.person.firstName();
         let userLastName = faker.person.lastName();
-        let userNumber = faker.phone.number();
         cy.get('#firstName').type(userFirstName);
         cy.get('#lastName').type(userLastName);
         cy.get('#userEmail').type(userEmailFaker);
-        cy.get('#userNumber').type(userNumber);
+        cy.get('#userNumber').type('1234567890');
         cy.get('#subjectsInput').type('Arts{enter}')
         cy.contains('label', 'Male').click();
         cy.contains('label', 'Reading').click();
@@ -37,7 +36,7 @@ describe('Text Box', () => {
         cy.get('.modal-content').should('contain.text', userFirstName);
         cy.get('.modal-content').should('contain.text', userLastName);
         cy.get('.modal-content').should('contain.text', userEmailFaker);
-        cy.get('.modal-content').should('contain.text', userNumber);
+        cy.get('.modal-content').should('contain.text', '1234567890');
 
     });
 });
